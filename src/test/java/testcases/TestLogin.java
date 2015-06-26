@@ -40,7 +40,7 @@ public class TestLogin extends SetupTest{
         };
     }
 
-    @Test(dataProvider = "getCredentials", enabled = false)
+    @Test(dataProvider = "getCredentials")
     public void test_login(String user, String pass){
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
@@ -56,7 +56,7 @@ public class TestLogin extends SetupTest{
             login.close_popup();
     }
 
-    @Test(dataProvider = "getEmails", enabled = false)
+    @Test(dataProvider = "getEmails")
     public void test_forgetPass(String email){
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
