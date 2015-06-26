@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1435309357442" stop="1435309379728" version="1.4.11" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Test Suite Demo : The Internet Site Demo</name>
+    <title>Test Suite Demo : The Internet Site Demo</title>
+    <test-cases>
+        <test-case start="1435309357442" stop="1435309357442" status="pending">
+            <name>test_forgetPass</name>
+            <failure>
+                <message>Test not implemented yet</message>
+                <stack-trace>There are no stack trace</stack-trace>
+            </failure>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="10739@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1435309357442" stop="1435309357442" status="pending">
+            <name>test_login</name>
+            <failure>
+                <message>Test not implemented yet</message>
+                <stack-trace>There are no stack trace</stack-trace>
+            </failure>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="10739@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1435309375768" stop="1435309378851" status="passed">
+            <name>test_loginFB</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="10739@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>

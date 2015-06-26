@@ -1,0 +1,14 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Test Suite Demo" verbose="1" >
+    <test name="The Internet Site Demo" >
+        <parameter name="keyword" value="sushi"/>
+        <classes>
+            <!--<class name="testcases.TestLogin"/>-->
+            <class name="testcases.TestSearchBar"/>
+
+
+
+        </classes>
+    </test>
+</suite>

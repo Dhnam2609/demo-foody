@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ns2:test-suite start="1435311042216" stop="1435311078709" version="1.4.11" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Test Suite Demo : The Internet Site Demo</name>
+    <title>Test Suite Demo : The Internet Site Demo</title>
+    <test-cases>
+        <test-case start="1435311042217" stop="1435311042217" status="pending">
+            <name>test_forgetPass</name>
+            <failure>
+                <message>Test not implemented yet</message>
+                <stack-trace>There are no stack trace</stack-trace>
+            </failure>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="13544@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1435311042217" stop="1435311042217" status="pending">
+            <name>test_login</name>
+            <failure>
+                <message>Test not implemented yet</message>
+                <stack-trace>There are no stack trace</stack-trace>
+            </failure>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="13544@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1435311053248" stop="1435311063435" status="passed">
+            <name>test_loginFB[dhnam260988@gmail.com,nam2609]</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="13544@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+        <test-case start="1435311072249" stop="1435311078279" status="passed">
+            <name>test_loginFB[testlogin,123456]</name>
+            <steps/>
+            <attachments/>
+            <labels>
+                <label name="host" value="namdohoangpc"/>
+                <label name="thread" value="13544@namdohoangpc.main(1)"/>
+            </labels>
+        </test-case>
+    </test-cases>
+    <labels>
+        <label name="framework" value="TestNG"/>
+        <label name="language" value="JAVA"/>
+    </labels>
+</ns2:test-suite>
