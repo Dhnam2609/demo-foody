@@ -17,6 +17,7 @@ public class SetupTest {
         public void setUp(){
             driver = new FirefoxDriver();
             driver.get("http://www.foody.vn/");
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             helpers.init(driver);
 

@@ -42,9 +42,15 @@ public class TestSearchBar extends SetupTest{
         Search search = new Search();
         search.search_keyword(keyword);
         search.select_sortTypeItems();
+    }
 
-
-
+    @Test (dependsOnMethods = {"test_searchKeyword"})
+    @Parameters({"keyword"})
+    public void test_searchDetailPage(String keyword){
+        Search search = new Search();
+        search.search_keyword(keyword);
+        search.click_searchedResult();
+        Assert.assertEquals(search.check_searchDetailLoaded(), Boolean.TRUE);
     }
 
 }

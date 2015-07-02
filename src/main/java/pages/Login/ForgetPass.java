@@ -17,6 +17,8 @@ public class ForgetPass {
     By errorTxt = By.xpath("//*[@class='error']/span/span");
     By notFoundEmailTxt = By.xpath("//*[@class='resetbox']/strong");
     By resetBox = By.xpath("//div[6]/div/div");
+    String inputEmailMessage = "Nhập vào email";
+    String invalidEmailMessage = "Email không hợp lệ";
 
     public Boolean checkforgetPassPageLoaded (){
         Boolean result = false;
@@ -39,11 +41,11 @@ public class ForgetPass {
     }
 
     public Boolean check_inputEmailMessageShown(){
-        return compare_element(errorTxt, "Nhập vào email");
+        return compare_elementWithText(errorTxt, "Nhập vào email");
     }
 
     public Boolean check_invalidEmailMessageShown(){
-        return compare_element(errorTxt, "Email không hợp lệ");
+        return compare_elementWithText(errorTxt, "Email không hợp lệ");
     }
 
     public Boolean check_notFoundEmailMessageShown() {

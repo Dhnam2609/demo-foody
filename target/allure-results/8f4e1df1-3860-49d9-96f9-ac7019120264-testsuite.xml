@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ns2:test-suite start="1435309395020" stop="1435309412091" version="1.4.11" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
-    <name>Test Suite Demo : The Internet Site Demo</name>
-    <title>Test Suite Demo : The Internet Site Demo</title>
+<ns2:test-suite start="1435745399812" stop="1435745496532" version="1.4.11" xmlns:ns2="urn:model.allure.qatools.yandex.ru">
+    <name>Test Suite Demo : The Internet Site Demo[keyword=sushi]</name>
+    <title>Test Suite Demo : The Internet Site Demo[keyword=sushi]</title>
     <test-cases>
-        <test-case start="1435309395134" stop="1435309395149" status="pending">
-            <name>test_forgetPass</name>
+        <test-case start="1435745399812" stop="1435745399812" status="pending">
+            <name>test</name>
             <failure>
                 <message>Test not implemented yet</message>
                 <stack-trace>There are no stack trace</stack-trace>
@@ -13,11 +13,11 @@
             <attachments/>
             <labels>
                 <label name="host" value="namdohoangpc"/>
-                <label name="thread" value="10900@namdohoangpc.main(1)"/>
+                <label name="thread" value="15086@namdohoangpc.main(1)"/>
             </labels>
         </test-case>
-        <test-case start="1435309395150" stop="1435309395150" status="pending">
-            <name>test_login</name>
+        <test-case start="1435745399812" stop="1435745399812" status="pending">
+            <name>test_featureCollections</name>
             <failure>
                 <message>Test not implemented yet</message>
                 <stack-trace>There are no stack trace</stack-trace>
@@ -26,16 +26,16 @@
             <attachments/>
             <labels>
                 <label name="host" value="namdohoangpc"/>
-                <label name="thread" value="10900@namdohoangpc.main(1)"/>
+                <label name="thread" value="15086@namdohoangpc.main(1)"/>
             </labels>
         </test-case>
-        <test-case start="1435309406848" stop="1435309411771" status="passed">
-            <name>test_loginFB</name>
+        <test-case start="1435745422546" stop="1435745492468" status="passed">
+            <name>test_featureCollectionsDetail</name>
             <steps/>
             <attachments/>
             <labels>
                 <label name="host" value="namdohoangpc"/>
-                <label name="thread" value="10900@namdohoangpc.main(1)"/>
+                <label name="thread" value="15086@namdohoangpc.main(1)"/>
             </labels>
         </test-case>
     </test-cases>

@@ -4,8 +4,9 @@
     <test name="The Internet Site Demo" >
         <parameter name="keyword" value="sushi"/>
         <classes>
-            <class name="testcases.TestLogin"/>
-            <class name="testcases.TestSearchBar"/>
+            <!--<class name="testcases.TestLogin"/>-->
+            <!--<class name="testcases.TestSearchBar"/>-->
+            <class name="testcases.Home"/>
 
 
 

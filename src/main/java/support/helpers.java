@@ -38,7 +38,11 @@ public class helpers {
         find_element(locator).click();
     }
 
-    public static Boolean compare_element(By locator, String text){
+    public static Boolean compare_elementWithText(By locator, String text){
         return find_element(locator).getText().equals(text);
+    }
+
+    public static Boolean compare_elementWithElement(By locator1, By locator2){
+        return find_element(locator1).getText().equals(find_element(locator2).getText());
     }
 }

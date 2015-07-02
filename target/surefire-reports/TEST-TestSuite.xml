@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="TestSuite" time="13.524" tests="3" errors="0" skipped="0" failures="0">
+<testsuite name="TestSuite" time="66.767" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="idea.version" value="14.1.3"/>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
@@ -11,7 +11,7 @@
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
     <property name="file.encoding.pkg" value="sun.io"/>
-    <property name="idea.launcher.port" value="7536"/>
+    <property name="idea.launcher.port" value="7537"/>
     <property name="user.country" value="US"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="sun.os.patch.level" value="unknown"/>
@@ -61,7 +61,5 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="test_searchKeyword" classname="testcases.TestSearchBar" time="5.994"/>
-  <testcase name="test_searchBarUI" classname="testcases.TestSearchBar" time="2.458"/>
-  <testcase name="test_sortTypeSelectBox" classname="testcases.TestSearchBar" time="5.072"/>
+  <testcase name="test_featureCollectionsDetail" classname="testcases.Home" time="66.767"/>
 </testsuite>

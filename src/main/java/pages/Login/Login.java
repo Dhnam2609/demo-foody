@@ -1,10 +1,15 @@
 package pages.Login;
 
+import objectdata.ObjectMap;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
+
+
+import org.apache.log4j.Logger;
+import org.apache.log4j.xml.DOMConfigurator;
 
 import static support.helpers.*;
 
@@ -29,35 +34,37 @@ public class Login {
     String missCredentialText = "Vui lòng nhập email hoặc username của bạn\n" +
             "Vui lòng nhập mật khẩu đăng nhập";
 
+    ObjectMap objectMap = new ObjectMap();
+
     public Boolean check_loginFormOpened (){
         Boolean result = false;
-        if(see_element(username)
-          && see_element(password)
-          && see_element(rememberCheckbox)
-          && see_element(loginBtn)
-          && see_element(forgetPass)
-          && see_element(signupBtn)){
+        if(see_element(objectMap.getLocator("login.username"))
+          && see_element(objectMap.getLocator("login.password"))
+          && see_element(objectMap.getLocator("login.rememberCheckbox"))
+          && see_element(objectMap.getLocator("login.loginBtn"))
+          && see_element(objectMap.getLocator("login.forgetPass"))
+          && see_element(objectMap.getLocator("login.signupBtn"))){
             result = true;
         }
         return result;
     }
 
     public void loginToLoginPage (String user, String pass){
-        inputData(username, user);
-        inputData(password, pass);
-        if(!find_element(rememberCheckbox).isSelected()) {
-            click_element(rememberCheckbox);
+        inputData(objectMap.getLocator("login.username"), user);
+        inputData(objectMap.getLocator("login.password"), pass);
+        if(!find_element(objectMap.getLocator("login.rememberCheckbox")).isSelected()) {
+            click_element(objectMap.getLocator("login.rememberCheckbox"));
         }
 
-        click_element(loginBtn);
+        click_element(objectMap.getLocator("login.loginBtn"));
     }
 
     public Boolean check_loginSuccess(){
-        return see_element(userImage);
+        return see_element(objectMap.getLocator("login.userImage"));
     }
 
     public void click_forgetPassBtn (){
-        click_element(forgetPass);
+        click_element(objectMap.getLocator("login.forgetPass"));
     }
 
     public void close_popup(){
@@ -72,16 +79,16 @@ public class Login {
         for (String handler: allwindows){
             driver.switchTo().window(handler);
             if (!handler.equals(parentWindow)){
-                inputData(emailFB, user);
-                inputData(passFB, pass);
-                click_element(loginFBBtn);
+                inputData(objectMap.getLocator("login.emailFB"), user);
+                inputData(objectMap.getLocator("login.passFB"), pass);
+                click_element(objectMap.getLocator("login.loginFBBtn"));
             }
         }
         driver.switchTo().window(parentWindow);
     }
 
     public Boolean check_loginFBFailed(){
-        return see_element(errorFBmessage);
+        return see_element(objectMap.getLocator("login.errorFBmessage"));
     }
 
 

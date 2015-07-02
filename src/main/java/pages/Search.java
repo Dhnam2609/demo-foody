@@ -32,7 +32,9 @@ public class Search {
     By gridViewBtn = By.xpath("//*[@id='directorypage']/div/div/div/div/div[2]/div[2]/div/div[4]/a[2]");
     By mapViewBtn = By.xpath("//*[@id=\"directorypage\"]/div/div/div/div/div[2]/div[2]/div/div[4]/a[3]");
     By resultList = By.xpath("//*[@id=\"directorypage\"]/div/div/div/div/div[2]/div[4]");
+    By firstSearchedResult = By.xpath("//*[@id=\"directorypage\"]/div/div/div/div/div[2]/div[4]/div[1]/div[2]/div[1]/div[2]/h2/a");
 
+    By searchDetailTitle = By.xpath("/html/body/div[6]/section[1]/div/div/div/div[2]/div/div[4]/div[2]/div/div[1]/div[2]/h1");
     Boolean result;
 
     public Boolean check_searchBarAvailable(){
@@ -87,8 +89,19 @@ public class Search {
         {
             we.click();
         }
-
      }
 
+    public void check_searchedResult(){
+        WebElement we = find_element(resultList);
+        List<WebElement> list = we.findElements(By.tagName("h2"));
+        System.out.print("list size" + list.size());
+    }
+    public void click_searchedResult(){
+        click_element(firstSearchedResult);
+    }
+
+    public Boolean check_searchDetailLoaded() {
+        return compare_elementWithElement(searchDetailTitle, firstSearchedResult);
+    }
 
 }
