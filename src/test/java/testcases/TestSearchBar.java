@@ -14,6 +14,7 @@ import support.SetupTest;
 public class TestSearchBar extends SetupTest{
     @Test
     public void test_searchBarUI(){
+        System.out.println("Verify search bar is displayed correctly");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
 
@@ -26,6 +27,7 @@ public class TestSearchBar extends SetupTest{
     @Test
     @Parameters({"keyword"})
     public void test_searchKeyword(String keyword){
+        System.out.println("Verify user can search a keyword successfully");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
 
@@ -39,6 +41,7 @@ public class TestSearchBar extends SetupTest{
     @Parameters({"keyword"})
 
     public void test_sortTypeSelectBox(String keyword){
+        System.out.println("Verify user can select items in sort type select-box");
         Search search = new Search();
         search.search_keyword(keyword);
         search.select_sortTypeItems();
@@ -47,6 +50,7 @@ public class TestSearchBar extends SetupTest{
     @Test (dependsOnMethods = {"test_searchKeyword"})
     @Parameters({"keyword"})
     public void test_searchDetailPage(String keyword){
+        System.out.println("Verify detail page of a search result is displayed correctly");
         Search search = new Search();
         search.search_keyword(keyword);
         search.click_searchedResult();

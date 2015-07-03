@@ -42,6 +42,7 @@ public class TestLogin extends SetupTest{
 
     @Test(dataProvider = "getCredentials", enabled = false)
     public void test_login(String user, String pass){
+        System.out.println("Test login");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
         homepage.click_loginBtn();
@@ -58,6 +59,7 @@ public class TestLogin extends SetupTest{
 
     @Test(dataProvider = "getEmails", enabled = false)
     public void test_forgetPass(String email){
+        System.out.println("Test forgot Password page");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
         homepage.click_loginBtn();
@@ -81,6 +83,7 @@ public class TestLogin extends SetupTest{
 
     @Test(dataProvider = "getCredentialsFB")
     public void test_loginFB(String user, String pass) {
+        System.out.println("Test login with FB account");
         HomePage homepage = new HomePage();
         homepage.click_loginFBBtn();
 

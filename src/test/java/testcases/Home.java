@@ -12,22 +12,32 @@ import support.SetupTest;
 public class Home extends SetupTest {
     @Test (enabled = false)
     public void test() throws InterruptedException {
+        System.out.println("Verify user can selection the banner options on Home page");
         HomePage home = new HomePage();
         home.select_bannerOptions();
     }
 
     @Test( enabled = false)
     public void test_featureCollections(){
+        System.out.println("Verify the featured collections section is displayed on Home page correctly");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.check_featureCollectionsSection(), Boolean.TRUE);
     }
 
-    @Test
-    public void test_featureCollectionsDetail() throws InterruptedException {
+    @Test (enabled = false)
+    public void test_featureCollectionsDetail() {
+        System.out.println("Verify detail pages of featured collection items are displayed correctly");
         HomePage homepage = new HomePage();
-        //Assert.assertEquals(homepage.check_featureCollectsDetail(),Boolean.TRUE);
-        homepage.check_featureCollectsDetail();
+        Assert.assertEquals(homepage.check_featureCollectsDetail(),Boolean.TRUE);
     }
+
+    @Test
+    public void test_viewAllCollections() throws InterruptedException {
+        HomePage homepage = new HomePage();
+        Assert.assertEquals(homepage.check_viewAllCollections(),Boolean.TRUE);
+
+    }
+
 
 //    @Test
 //    public void test1(){
