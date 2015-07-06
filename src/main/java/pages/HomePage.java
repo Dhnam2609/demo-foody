@@ -35,6 +35,24 @@ public class HomePage {
 
     By topReviews_section = By.xpath("/html/body/section[3]/div/div");
     By restaurants_section = By.xpath("/html/body/section[4]/div/div");
+    By categoriesTab = By.id("categories-tab-1-3");
+    By restaurantsBtn = By.xpath("//*[@id=\"categories-tab-1-3\"]/li[1]/a");
+    By restaurantsItems = By.xpath("//*[@id=\"discovery-hot-tab-1-3\"]/div/div");
+    By viewMorePlaceBtn = By.xpath("/html/body/section[4]/div/div/div[1]/div[2]/a");
+    By discoverNewPlaces_items = By.xpath("//*[@id=\"discovery-hot-tab-1-3\"]/div/div/div[1]");
+    By topHotPlaces_items = By.xpath("//*[@id=\"discovery-hot-tab-1-3\"]/div/div/div[2]");
+    By newsAndEventsBtn = By.xpath("//*[@id=\"categories-tab-1-3\"]/li[2]/a");
+    By newsAndEvents_Items = By.xpath("//*[@id=\"home-promotions-tab-1-3\"]/div/div[1]");
+    By viewMoreEventsBtn = By.xpath("//*[@id=\"home-promotions-tab-1-3\"]/div/div[2]/a");
+    By eventDetailTitle = By.xpath("/html/body/div[6]/section[1]/div/div/div/div[2]/div/div[4]/div[2]/div/div[1]/div[2]/h1");
+    By eventDetailMenuBar = By.id("float-menu");
+    By eventDetailImage = By.xpath("/html/body/div[6]/section[1]/div/div/div/div[2]/div/div[4]/div[1]/div/a/img");
+    By eventDetailContent = By.xpath("/html/body/div[6]/section[2]/div/div/div/div/div[1]/div/div/div/div");
+    By advertorialBtn = By.xpath("//*[@id=\"categories-tab-1-3\"]/li[3]/a");
+    By advertorial_Items = By.id("prarticle-tab-1-3");
+
+
+
     By buffet_section = By.xpath("/html/body/section[5]/div/div");
     By coffee_section = By.xpath("/html/body/section[6]/div/div");
     By bar_section = By.xpath("/html/body/section[7]/div/div");
@@ -42,6 +60,7 @@ public class HomePage {
     By articles_section = By.xpath("/html/body/section[9]/div/div");
 
     By pageDetailTitle = By.xpath("//*[@id=\"head-wish-list\"]/div/div/div[1]/div/h1");
+
     ObjectMap objectMap = new ObjectMap();
 
     public Boolean checkHomePageLoaded() {
@@ -149,5 +168,131 @@ public class HomePage {
         }
         return result;
     }
+
+    public Boolean check_home_restaurantsSection(){
+        Boolean result = false;
+        if(see_element(categoriesTab)
+            && see_element(restaurantsItems)
+            && see_element(viewMorePlaceBtn)
+            && newPlacesPanel().size() == 6
+            && topHotPlacesPanel().size() == 6){
+            result = true;
+        }
+        return result;
+    }
+
+    public List<WebElement> newPlacesPanel(){
+        WebElement el_leftpanel = find_element(discoverNewPlaces_items);
+        List<WebElement> list_newPlaces = el_leftpanel.findElements(By.cssSelector(".items-name"));
+        return list_newPlaces;
+    }
+
+    public List<WebElement> topHotPlacesPanel(){
+        WebElement el_rightpannel = find_element(topHotPlaces_items);
+        List<WebElement> list_topHotPlaces = el_rightpannel.findElements(By.cssSelector(".items-name"));
+        return list_topHotPlaces;
+    }
+
+    public void check_home_restaurantsItemsDetail() throws InterruptedException {
+        //Boolean result = false;
+        System.out.println(newPlacesPanel().size());
+        for(int i = 1; i<=newPlacesPanel().size(); i++){
+            WebElement el = find_element(By.xpath("//*[@id=\"discovery-hot-tab-1-3\"]/div/div/div[1]/div[2]/div[" + i + "]/div[2]/div[1]/h3/a"));
+            String restaurantsTitle = el.getText();
+            el.click();
+            System.out.println(restaurantsTitle);
+            driver.navigate().back();
+        }
+
+        System.out.println(topHotPlacesPanel().size());
+        for(int i = 1; i<=topHotPlacesPanel().size(); i++){
+            WebElement el = find_element(By.xpath("//*[@id=\"discovery-hot-tab-1-3\"]/div/div/div[2]/div[2]/div[" + i + "]/div[2]/div[1]/h3/a"));
+            String restaurantsTitle = el.getText();
+            el.click();
+            System.out.println(restaurantsTitle);
+            driver.navigate().back();
+        }
+    }
+//    public Boolean check_home_restaurantsItems(){
+//        Boolean result = false;
+//        WebElement el_leftpanel = find_element(discoverNewPlaces_items);
+//        List<WebElement> list_newPlaces = el_leftpanel.findElements(By.cssSelector(".items"));
+//        System.out.println("list_newPlaces: " + list_newPlaces.size());
+//
+//        WebElement el_rightpannel = find_element(topHotPlaces_items);
+//        List<WebElement> list_topHotPlaces = el_rightpannel.findElements(By.cssSelector(".items"));
+//        System.out.println("list_topHotPlaces: " + list_topHotPlaces.size());
+//        if(list_newPlaces.size() == 6 && list_topHotPlaces.size() == 6){
+//            result = true;
+//        }
+//        return result;
+//    }
+
+    public Boolean check_restaurantsSection_newsAndEventsTab(){
+        Boolean result = false;
+        click_element(newsAndEventsBtn);
+        if(see_element(newsAndEvents_Items)
+                && newsAndEventsItems().size() == 8
+                && see_element(viewMoreEventsBtn)
+                && see_element(viewMorePlaceBtn)){
+            result = true;
+        }
+        return result;
+    }
+
+    public List<WebElement> newsAndEventsItems(){
+        WebElement el = find_element(newsAndEvents_Items);
+        List<WebElement> list_items = el.findElements(By.cssSelector(".items"));
+        return  list_items;
+    }
+
+    public Boolean check_newsAndEventsItemsDetail(){
+        Boolean result = false;
+        for(int i = 1; i < newsAndEventsItems().size(); i++){
+            WebElement el = find_element(By.xpath("//*[@id=\"home-promotions-tab-1-3\"]/div/div[1]/div[" + i + "]/div[2]/div[1]/h3/a"));
+            //String eventTitle = el.getText();
+            el.click();
+            if(see_element(eventDetailMenuBar)
+                    && see_element(eventDetailTitle)
+                    && see_element(eventDetailImage)
+                    && see_element(eventDetailContent)){
+                result = true;
+                driver.navigate().back();
+            }
+            else{
+                result = false;
+                break;
+            }
+
+
+//            System.out.println(eventTitle);
+//            System.out.println(find_element(eventDetailTitle).getText());
+//            if(compare_elementWithText(eventDetailTitle, eventTitle)){
+//                result = true;
+//                driver.navigate().back();
+//            }
+//            else{
+//                result = false;
+//                break;
+//            }
+        }
+        return result;
+    }
+
+    public List<WebElement> advertorialItems(){
+        WebElement el = find_element(advertorial_Items);
+        List<WebElement> list_items = el.findElements(By.cssSelector(".update-foodee-list-item"));
+        return list_items;
+    }
+
+    public Boolean check_restaurantsSection_advertorialTab(){
+        Boolean result = false;
+        if(see_element(advertorial_Items) && see_element(viewMorePlaceBtn)){
+            result = true;
+        }
+        return result;
+    }
+
+
 }
 

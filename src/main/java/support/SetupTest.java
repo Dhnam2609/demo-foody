@@ -1,5 +1,6 @@
 package support;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -17,7 +18,7 @@ public class SetupTest {
         public void setUp(){
             driver = new FirefoxDriver();
             driver.get("http://www.foody.vn/");
-            //driver.manage().window().maximize();
+            driver.manage().window().maximize();
             driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
             helpers.init(driver);
 

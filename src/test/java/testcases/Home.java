@@ -17,7 +17,7 @@ public class Home extends SetupTest {
         home.select_bannerOptions();
     }
 
-    @Test( enabled = false)
+    @Test ( enabled = false)
     public void test_featureCollections(){
         System.out.println("Verify the featured collections section is displayed on Home page correctly");
         HomePage homepage = new HomePage();
@@ -31,19 +31,27 @@ public class Home extends SetupTest {
         Assert.assertEquals(homepage.check_featureCollectsDetail(),Boolean.TRUE);
     }
 
-    @Test
+    @Test (enabled = false)
     public void test_viewAllCollections() throws InterruptedException {
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.check_viewAllCollections(),Boolean.TRUE);
 
     }
 
+    @Test (enabled = false)
+    public void test_restaurantsSection() throws InterruptedException {
+        System.out.println("Verify restaurants section UI is displayed on Home page correctly");
+        HomePage homepage = new HomePage();
+        Assert.assertTrue(homepage.check_home_restaurantsSection());
+        homepage.check_home_restaurantsItemsDetail();
 
-//    @Test
-//    public void test1(){
-//        Search search = new Search();
-//        search.click_searchBar();
-//        search.search_keyword("sushi");
-//        search.check_searchedResult();
-//    }
+    }
+
+    @Test
+    public void test_newsAndEventsTab(){
+        System.out.println("Verify the News & Events tab is displayed correctly");
+        HomePage homepage = new HomePage();
+        Assert.assertTrue(homepage.check_restaurantsSection_newsAndEventsTab());
+        Assert.assertTrue(homepage.check_newsAndEventsItemsDetail());
+    }
 }
