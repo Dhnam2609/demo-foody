@@ -14,6 +14,8 @@ import static support.helpers.driver;
  * Created by namdo on 24/06/2015.
  */
 public class SetupTest {
+    protected String username = "dhnam260988@gmail.com";
+    protected String pass = "123456";
     @BeforeMethod
         public void setUp(){
             driver = new FirefoxDriver();

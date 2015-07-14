@@ -1,12 +1,17 @@
 package testcases;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.Login.ForgetPass;
 import pages.Login.Login;
 import support.SetupTest;
+
+import java.io.IOException;
+import java.util.Set;
 
 
 /**
@@ -17,7 +22,7 @@ public class TestLogin extends SetupTest{
     Object[][] getCredentials(){
         return new Object[][]{
                 {"dhnam260988@gmail.com", "123456"},
-                {"abc@gmail.com", "123"},
+                {RandomStringUtils.randomAlphabetic(5), RandomStringUtils.randomNumeric(5)},
                 {"",""},
                 {"dhnam260988@gmail.com",""},
                 {"","123456"}
@@ -41,7 +46,7 @@ public class TestLogin extends SetupTest{
     }
 
     @Test(dataProvider = "getCredentials", enabled = false)
-    public void test_login(String user, String pass){
+    public void test_login(String user, String pass) throws IOException {
         System.out.println("Test login");
         HomePage homepage = new HomePage();
         Assert.assertEquals(homepage.checkHomePageLoaded(), Boolean.TRUE);
@@ -51,7 +56,7 @@ public class TestLogin extends SetupTest{
         Assert.assertEquals(login.check_loginFormOpened(), Boolean.TRUE);
         login.loginToLoginPage(user, pass);
         if(user.equals("dhnam260988@gmail.com") && pass.equals("123456"))
-            Assert.assertEquals(login.check_loginSuccess(), Boolean.TRUE);
+            login.check_loginSuccess();
 
         else
             login.close_popup();
@@ -81,8 +86,8 @@ public class TestLogin extends SetupTest{
             Assert.assertEquals(forget.check_notFoundEmailMessageShown(),Boolean.TRUE);
     }
 
-    @Test(dataProvider = "getCredentialsFB")
-    public void test_loginFB(String user, String pass) {
+    @Test(dataProvider = "getCredentialsFB", enabled = false)
+    public void test_loginFB(String user, String pass) throws IOException {
         System.out.println("Test login with FB account");
         HomePage homepage = new HomePage();
         homepage.click_loginFBBtn();
@@ -90,9 +95,44 @@ public class TestLogin extends SetupTest{
         Login login = new Login();
         login.loginFB(user, pass);
         if(user.equals("dhnam260988@gmail.com"))
-            Assert.assertEquals(login.check_loginSuccess(), Boolean.TRUE);
+            login.check_loginSuccess();
         else
-            Assert.assertEquals(login.check_loginFBFailed(), Boolean.TRUE);
+            login.check_loginFBFailed();
 
+    }
+
+    @Test
+    public void test_loginsuccess() throws IOException {
+        Reporter.log("=====ID_TC001: Verify that user can log in successfully with valid username and password=====", true);
+        HomePage homepage = new HomePage();
+        homepage.click_loginBtn();
+
+        Login login = new Login();
+        login.loginToLoginPage(username, pass);
+        login.check_loginSuccess();
+
+    }
+
+    @Test
+    public void test_invalidUsername_loginfailed() throws IOException {
+        Reporter.log("=====ID_TC002: Verify that user can't log in successfully with invalid username", true);
+        HomePage homepage = new HomePage();
+        homepage.click_loginBtn();
+
+        Login login = new Login();
+        login.loginToLoginPage(username + RandomStringUtils.randomAlphabetic(5), pass );
+        login.check_loginFailedWithInvalidUser();
+
+    }
+
+    @Test
+    public void test_blankUserAndPass_loginfailed() throws IOException {
+        Reporter.log("=====ID_TC003: Verify that user can't log in successfully with blank username and password", true);
+        HomePage homepage = new HomePage();
+        homepage.click_loginBtn();
+
+        Login login = new Login();
+        login.loginToLoginPage("","");
+        login.check_loginFailedWithBlankUserAndPass();
     }
 }

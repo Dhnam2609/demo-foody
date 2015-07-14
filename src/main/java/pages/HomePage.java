@@ -8,7 +8,10 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
+import support.helpers;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -285,12 +288,15 @@ public class HomePage {
         return list_items;
     }
 
-    public Boolean check_restaurantsSection_advertorialTab(){
-        Boolean result = false;
-        if(see_element(advertorial_Items) && see_element(viewMorePlaceBtn)){
-            result = true;
+    public void check_restaurantsSection_advertorialTab() throws IOException, InterruptedException {
+        tcName = "TC_Home page_ check advertorial tab on restaurants Section";
+        click_element(advertorialBtn);
+        if(!see_element(advertorial_Items) || !see_element(viewMorePlaceBtn)){
+            result = "falsed";
+            errMess = "this is failed";
+
         }
-        return result;
+        check(find_element(advertorial_Items));
     }
 
 

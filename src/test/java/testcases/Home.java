@@ -1,10 +1,14 @@
 package testcases;
 
+import org.apache.commons.lang.RandomStringUtils;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.Search;
 import support.SetupTest;
+
+import java.io.IOException;
 
 /**
  * Created by namdo on 30/06/2015.
@@ -47,11 +51,18 @@ public class Home extends SetupTest {
 
     }
 
-    @Test
+    @Test (enabled = false)
     public void test_newsAndEventsTab(){
         System.out.println("Verify the News & Events tab is displayed correctly");
         HomePage homepage = new HomePage();
         Assert.assertTrue(homepage.check_restaurantsSection_newsAndEventsTab());
         Assert.assertTrue(homepage.check_newsAndEventsItemsDetail());
+    }
+
+    @Test
+    public void test_advertorialTab() throws IOException, InterruptedException {
+        Reporter.log("Verify the advertorial Tab is displayed correctly" , true);
+        HomePage homepage = new HomePage();
+        homepage.check_restaurantsSection_advertorialTab();
     }
 }
